@@ -11,17 +11,17 @@ class Poll(models.Model):
         return 'Poll {}'.format(self.name)
 
 @python_2_unicode_compatible
-class Question(models.Model):
-    name = models.CharField(max_length=100)
-    poll = models.ForeignKey(Poll)
+class Answer(models.Model):
+    name = models.CharField(max_length=100, null=True)
+    poll = models.ForeignKey(Poll, null=True)
 
     def __str__(self):
         return 'Question {}'.format(self.name)
 
 @python_2_unicode_compatible
-class Answer(models.Model):
-    user_name = models.CharField(max_length=100)
-    question = models.ForeignKey(Question)
+class UserResponse(models.Model):
+    user_name = models.CharField(max_length=100, null=True)
+    answer = models.ForeignKey(Answer, null=True)
 
     def __str__(self):
-        return 'Answer {}'.format(self.name)
+        return self.user_name

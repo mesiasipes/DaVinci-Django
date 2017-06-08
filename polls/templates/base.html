@@ -27,10 +27,12 @@ Hello World
 
 {% for poll in polls %}
     {{ poll.name }}
-    {% for question in poll.question_set.all %}
+    {% for question in poll.answer_set.all %}
         <br> - {{ question.name }}
     {% endfor %}
 {% endfor %}
+
+{{ form }}
 
 </body>
 </html>
